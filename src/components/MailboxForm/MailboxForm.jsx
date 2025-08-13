@@ -3,34 +3,37 @@ import { useNavigate } from 'react-router'
 
 const MailboxForm = (props) => {
     const navigate = useNavigate()
-    const [formData, setFormData] = useState({
-        boxSize: '',
-        boxOwner: ''
-    })
+    // const [formData, setFormData] = useState({
+    //     mailboxId:'',
+    //     boxSize: '',
+    //     boxOwner: ''
+    // })
     const handleSubmitBox = (event) => {
         event.preventDefault()
-        props.addBox(formData)
+        setFormData(req)
+        props.addBox()
         setFormData({
+            mailboxId:'',
             boxSize: '',
             boxOwner: ''
         })
         navigate('/mailboxes')
     }
-    const handleInputChange = (event) => {
-        setFormData({...formData, [event.target.name]: event.target.value})
-    }
+    // const handleInputChange = (event) => {
+    //     setFormData({...props.mailbox, [event.target.name]: event.target.value})
+    // }
     return (
         <>
            <h1>New Mailbox</h1> 
-           <form onSubmit={handleSubmitBox}>
+           <form onSubmit={props.addBox}>
                 <label>Enter a Box Owner:</label>
-                <input type='text' name='boxOwner' placeholder="Boxholder name" value={formData.boxOwner} onChange={handleInputChange}></input>
+                <input type='text' name='boxOwner' placeholder="Boxholder name" value={props.newMailbox.boxOwner} onChange={props.handleInputChange}></input>
                  
                  <label >Select Box Size:</label>
-                <select name='boxSize' id='boxSize' value={formData.boxSize} onChange={handleInputChange}>
-                    <option value={'Small'}>Small</option>
-                    <option value={'Medium'}>Medium</option>
-                    <option value={'Large'}>Large</option>
+                <select name='boxSize' id='boxSize' onChange={props.handleInputChange} value={props.newMailbox.boxSize}>
+                    <option value='Small'>Small</option>
+                    <option value='Medium'>Medium</option>
+                    <option value='Large'>Large</option>
                 </select>
 
                 <button type="submit">submit</button>

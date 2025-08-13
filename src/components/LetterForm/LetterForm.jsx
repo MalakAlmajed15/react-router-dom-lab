@@ -30,7 +30,7 @@ const LetterForm = (props) => {
             <h1>New Letter</h1>
             <form onSubmit={handleSubmit}>
                 <label>Select a MailBox</label>
-                <select onChange={handleChange} value={formData.mailboxId}>
+                <select onChange={handleChange} value={formData.mailboxId} name='mailboxId'>
                     {props.mailboxes.map((box) => {
                         return (
                             <option key={box._id} value={formData.mailboxId = box._id}>{`Mailbox ${box._id}`}</option>
@@ -38,9 +38,9 @@ const LetterForm = (props) => {
                     })}
                 </select>
                 <label>Recipient</label>
-                <input value={formData.recipient} onChange={handleChange}></input>
+                <input name='recipient' value={formData.recipient} onChange={handleChange}></input>
                 <label>Message</label>
-                <textarea value={formData.message} onChange={handleChange}></textarea>
+                <textarea name='message' value={formData.message} onChange={handleChange}></textarea>
                 <button type='submit'>Submit</button>
             </form>
         </>
