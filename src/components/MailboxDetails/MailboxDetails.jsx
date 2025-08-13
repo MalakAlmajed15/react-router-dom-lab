@@ -22,7 +22,7 @@ const MailboxDetails = (props) => {
                         {
                             selectedLetters.map((letter, index) => (
                                 <>
-                                    <p key={index}>{letter.message}</p>
+                                    <p>{letter.message}</p>
                                     <hr />
                                 </>
                             ))

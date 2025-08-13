@@ -5,7 +5,6 @@ import MailboxDetails from "./components/MailboxDetails/MailboxDetails"
 import { BrowserRouter as Router, Route, Routes} from "react-router"
 import {useState} from 'react'
 import LetterForm from "./components/LetterForm/LetterForm"
-import './App.css'
 
 const App = () => {
     const [mailboxes, setMailboxes] = useState([])
@@ -15,8 +14,7 @@ const App = () => {
     })
     const [letters, setLetters] = useState([])
     
-    const addBox = (event) => {
-        event.preventDefault()
+    const addBox = () => {
         const newMailbox = {
             _id: mailboxes.length + 1,
             ...newMailboxes
