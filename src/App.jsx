@@ -5,6 +5,7 @@ import MailboxDetails from "./components/MailboxDetails/MailboxDetails"
 import { BrowserRouter as Router, Route, Routes} from "react-router"
 import {useState} from 'react'
 import LetterForm from "./components/LetterForm/LetterForm"
+import './App.css'
 
 const App = () => {
     const [mailboxes, setMailboxes] = useState([])
@@ -25,7 +26,6 @@ const App = () => {
         boxSize: '',
         boxOwner: ''
     })
-    console.log('kalasna')
     }
 
     const addLetter = (newLetter) => {

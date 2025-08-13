@@ -18,8 +18,6 @@ const MailboxDetails = (props) => {
                         <h3>Details</h3>
                         <p>Boxholder: {boxSelected.boxOwner}</p>
                         <p>Box Size: {boxSelected.boxSize}</p>
-
-                        {/* letters part*/}
                         <h3>Letters</h3>
                         {
                             selectedLetters.map((letter, index) => (

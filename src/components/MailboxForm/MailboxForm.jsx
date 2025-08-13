@@ -1,16 +1,18 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router'
 
 const MailboxForm = (props) => {
     const navigate = useNavigate()
-    // const [formData, setFormData] = useState({
-    //     mailboxId:'',
-    //     boxSize: '',
-    //     boxOwner: ''
-    // })
+
+    const [formData, setFormData] = useState({
+        mailboxId:'',
+        boxSize: '',
+        boxOwner: ''
+    })
+
     const handleSubmitBox = (event) => {
         event.preventDefault()
-        setFormData(req)
+        setFormData(event)
         props.addBox()
         setFormData({
             mailboxId:'',
@@ -19,13 +21,11 @@ const MailboxForm = (props) => {
         })
         navigate('/mailboxes')
     }
-    // const handleInputChange = (event) => {
-    //     setFormData({...props.mailbox, [event.target.name]: event.target.value})
-    // }
+
     return (
         <>
            <h1>New Mailbox</h1> 
-           <form onSubmit={props.addBox}>
+           <form onSubmit={handleSubmitBox}>
                 <label>Enter a Box Owner:</label>
                 <input type='text' name='boxOwner' placeholder="Boxholder name" value={props.newMailbox.boxOwner} onChange={props.handleInputChange}></input>
                  
